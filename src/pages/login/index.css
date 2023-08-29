@@ -1,0 +1,77 @@
+:root {
+    --font-montserrat: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container-inputs {
+    width: 100vw;
+    height: 100vh;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #FFBA52;
+}
+
+.inputs-container {
+    width: 55vw;
+    height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.inputs > Input {
+    width: 30vw;
+    height: 35px;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+    outline: none;
+
+    padding: 0 10px;
+}
+
+.inputs > Input::placeholder {
+    color: #000;
+}
+
+.inputs > Input:hover {
+    background-color: #F0EFEF;
+}
+
+.inputs > Input:focus {
+    background-color: #F0EFEF;
+}
+
+.inputs-container > Button {
+    width: 31.5vw;
+    height: 35px;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+    outline: none;
+
+    font-family: var(--font-montserrat);
+    cursor: pointer;
+
+    background-color: #FFBA52;
+}
+
+.inputs-container > Button:active {
+    background-color: #FFCC81;
+}
+
+.inputs-container > img {
+    width: 18vw;
+}
