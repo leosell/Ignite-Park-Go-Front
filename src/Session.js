@@ -16,3 +16,15 @@ export const setSession = (token) => {
 export const removeToken = () => {
   Cookies.remove("Authorization");
 };
+
+export const getUserLogged = () => {
+  return Cookies.get("UserLogged");
+}
+
+export const setUserLogged = (user) => {
+  Cookies.set("UserLogged", user);
+}
+
+export const removeUserLogged = () => {
+  Cookies.remove("UserLogged");
+}

@@ -1,0 +1,42 @@
+.container-company {
+    width: 82.8vw;
+    height: 90vh;
+
+    position: absolute;
+    margin-left: 288px;
+    border-radius: 10px 0 0 0;
+    border-left: .5px solid #000;
+
+    background-color: #FFF;
+}
+
+.container-company-topo {
+    height: 8vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0 20px;
+    border-bottom: 1px solid #000;
+    border-radius: 10px 0 0 0;
+
+    background-color: #888888;
+}
+
+.table-company {
+    width: 82.8vw;
+    border-collapse: collapse;
+}
+
+.table-company-header {
+    background-color: #CCC;
+    font-weight: bold;
+}
+
+.table-company-header,
+.table-company {
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

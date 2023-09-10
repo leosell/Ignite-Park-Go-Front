@@ -1,16 +1,19 @@
 import { useHistory } from "react-router-dom";
-import { useApplicationContext } from "../../context/ApplicationContext.tsx";
 import { IoHomeOutline, IoBusinessOutline } from "react-icons/io5";
 import { AiOutlineTags } from "react-icons/ai";
 import { LiaMoneyBillSolid, LiaWalletSolid } from "react-icons/lia";
 import { FiUsers } from "react-icons/fi";
 import { RxExit } from "react-icons/rx";
-import { Button } from "../Button";
+import { removeToken } from "../../Session";
 import "./index.css";
 
 export const NavBar = () => {
-    const { user, setUserAction } = useApplicationContext();
     const router = useHistory();
+
+    const saida = () => {
+        removeToken();
+        router.push("/");
+    }
 
     return (
         <>
@@ -24,7 +27,7 @@ export const NavBar = () => {
                         <div
                             className="buttons-from-icons"
                             onClick={() => {
-                                router.push("/")
+                                router.push("/inicio")
                             }}
                         >
                             <IoHomeOutline size={18} />
@@ -33,7 +36,7 @@ export const NavBar = () => {
                         <div
                             className="buttons-from-icons"
                             onClick={() => {
-                                router.push("/register-entrada-saida")
+                                router.push("/registrar-entrada-saida")
                             }}
                         >
                             <AiOutlineTags size={18} />
@@ -42,7 +45,7 @@ export const NavBar = () => {
                         <div
                             className="buttons-from-icons"
                             onClick={() => {
-                                router.push("/")
+                                router.push("/preco-horario")
                             }}
                         >
                             <LiaMoneyBillSolid size={18} />
@@ -79,10 +82,7 @@ export const NavBar = () => {
 
                     <div
                         className="container-button-exit"
-                        onClick={() => {
-                            setUserAction({ type: "logout" });
-                            router.push("/login");
-                        }}
+                        onClick={() => saida()}
                     >
                         <RxExit />
                         <span>Sair</span>

@@ -1,58 +1,47 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { AiOutlineLock } from "react-icons/ai";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { api } from "../../api";
-import { useApplicationContext } from "../../context/ApplicationContext.tsx";
-import { hasSession } from "../../Session";
-import "./index.css";
-
-const loginErrorList = {
-    401: "Usuário ou Senha incorretos.",
-  };
-  
+import { setSession, setUserLogged } from "../../Session";
+import "./index.css";  
 
 export const Login = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
-    const [ loginError, setLoginError ] = useState("");
-    const [ isLoading, setIsLoading ] = useState(false);
-    const { user, setUserAction } = useApplicationContext();
     const router = useHistory();
-    const { state } = useLocation();
-
-    useEffect(() => {
-        setLoginError("");
-    }, [email, password]);
-
-    useEffect(() => {
-        if (hasSession()) {
-          router.push(state?.prevPath ? state?.prevPath : "/");
-        }
-      }, [user]);
     
 
-    const submit = async (authorization) => {
-        setIsLoading(true);
+    const submit = async () => {
         try {
             const data = await api.post("/login", {
                 email: email,
                 password: password
-            })
-            console.log(data);
-            setIsLoading(false);
-            setUserAction({
-                type: "login",
-                payload: { userData: data.data, token: data.data }
             });
+            setSession(data.data);
+            setUserLogged(email);
+            router.push("/inicio");
         } catch (e) {
             console.log(e.response.data);
-            setLoginError(
-                loginErrorList[e.response?.status] ?? "Algo deu errado."
-            );
-            setIsLoading(false);
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+
+            Toast.fire({
+                icon: "error",
+                title: e.response.data,
+            });
         }
     }
 
@@ -82,12 +71,10 @@ export const Login = () => {
                 
 
                 <Button
-                    isLoading={isLoading}
-                    value="Entrar"
                     onClick={() => submit(email + ":" + password)}
-                    // loadingText="Entrando"
-                />
-                <p>{loginError}</p>
+                >
+                    Entrar
+                </Button>
                 <p>Powered By <strong>Ignite Park&Go</strong></p>
             </div>
         </div>

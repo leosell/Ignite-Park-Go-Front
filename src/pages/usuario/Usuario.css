@@ -1,0 +1,72 @@
+.container-users {
+    width: 82.8vw;
+    height: 90vh;
+
+    position: absolute;
+    margin-left: 288px;
+    border-radius: 10px 0 0 0;
+    border-left: .5px solid #000;
+
+    background-color: #FFF;
+}
+
+.container-users-topo {
+    height: 8vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0 20px;
+    border-bottom: 1px solid #000;
+    border-radius: 10px 0 0 0;
+
+    background-color: #888888;
+}
+
+.table-users {
+    width: 82.8vw;
+    border-collapse: collapse;
+}
+
+.table-users-header {
+    background-color: #CCC;
+    font-weight: bold;
+}
+
+.table-users-header,
+.table-users {
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #efefef;
+}
+
+.icon-edit,
+.icon-delete {
+    cursor: pointer;
+}
+
+.container-users-topo span {
+    font-size: large;
+    font-weight: 600;
+}
+
+.container-users-topo Button {
+    height: 30px;
+    width: 200px;
+
+    border: 1.2px solid #000;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    background-color: #fdb242;
+}
+
+.container-users-topo Button:hover {
+    background-color: #FFBA52;
+}
