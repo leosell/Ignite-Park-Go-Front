@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     padding: 0 20px;
     border-bottom: 1px solid #000;
     border-radius: 10px 0 0 0;
@@ -69,4 +69,82 @@ tr:hover {
 
 .container-users-topo Button:hover {
     background-color: #FFBA52;
+}
+
+.modal-container {
+    position: absolute as absolute;
+    top: 0;
+    left: 0;
+    transform: translate(150%, 30%);
+
+    width: 25vw;
+    height: 60vh;
+
+    border-radius: 10px;
+
+    background-color: #FFF;
+}
+
+.form-control {
+    height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 50px;
+}
+
+.form-control-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.dropdown-company,
+.dropdown-type-user {
+    width: 20vw;
+}
+
+.form-control-div > Input {
+    width: 19.5vw;
+    height: 20px;
+}
+
+.form-button {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    margin-top: 10px;
+    margin-right: 40px;
+
+    gap: 10px;
+}
+
+.button-saved > Button,
+.button-cancell > Button {
+    height: 3vh;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    background-color: #FFF;
+
+    font-size: 14px;
+}
+
+.saved-button:hover {
+    background-color: #cccccc43;
 }
